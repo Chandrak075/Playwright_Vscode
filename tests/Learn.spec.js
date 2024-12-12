@@ -432,7 +432,7 @@ test("Take Screenshot", async ({page}) => {
 
 
 
-test.only("Handle multiple pages", async ({page}) => {
+test("Handle multiple pages", async ({page}) => {
 
     await page.goto("");
 
