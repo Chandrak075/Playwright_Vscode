@@ -15,7 +15,7 @@ test('Get Request (GET)', async ({ request }) => {
 
 
 
-test.only('Create user (post)', async ({ request }) => {
+test('Create user (post)', async ({ request }) => {
     const response = await request.post('https://reqres.in/api/users', {
         data: { name: 'Kumar', job: 'Trainer' },
         headers: { 'Accept': 'application/json' },
