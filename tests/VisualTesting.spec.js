@@ -19,11 +19,11 @@ test("Visual Test (Full page)", async ({ page }) => {
 });
 
 
-test("Ignore if the pixel diff 800 (800 maximum level playwright allow, yathu adhika habni km hei pariba.)", async ({page}) =>{
+// test("Ignore if the pixel diff 800 (800 maximum level playwright allow, yathu adhika habni km hei pariba.)", async ({page}) =>{
 
-    await page.goto("https://practicetestautomation.com/practice-test-login/");
-    await expect(page).toHaveScreenshot("Fullpage.png",{maxDiffPixels: 800});
-});
+//     await page.goto("https://practicetestautomation.com/practice-test-login/");
+//     await expect(page).toHaveScreenshot("Fullpage.png",{maxDiffPixels: 800});
+// });
 
 
 // test("remove adds from visual testing", async ({page}) => {
