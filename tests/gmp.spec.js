@@ -6,9 +6,9 @@ test.describe("Live IPO GMP Extractor", () => {
 
   const extractIPOData = async (page, row) => {
     const nameSelector = `//tbody/tr[${row}]/td[1]/a[1]`;
-    const valueSelector = `//tbody/tr[${row}]/td[4]/b[1]`;
-    const singleSelector = `//tbody/tr[${row}]/td[7]`;
-    const profitSelector = `//tbody/tr[${row}]/td[3]/b[1]`;
+    const valueSelector = `//tbody/tr[${row}]/td[5]/b[1]`;
+    const singleSelector = `//tbody/tr[${row}]/td[8]`;
+    const profitSelector = `//tbody/tr[${row}]/td[4]/b[1]`;
 
     await page.waitForSelector(nameSelector);
     const name = await page.locator(nameSelector).innerText();
