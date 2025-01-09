@@ -21,7 +21,7 @@ test.describe("Live IPO GMP Extractor", () => {
 
   const calculateAndLogProfit = ({ name, value, single, profit }) => {
     const totalProfit = single * profit;
-    console.log(`${name} - ${value} - ${totalProfit}`);
+    console.log(`${name} | GMP = ${value} | Profit = ${totalProfit}`);
   };
 
   test("Test 1", async ({ page }) => {
@@ -48,33 +48,33 @@ test.describe("Live IPO GMP Extractor", () => {
     calculateAndLogProfit(ipoData);
   });
 
-  test("Test 5", async ({ page }) => {
-    await page.goto(BASE_URL);
-    const ipoData = await extractIPOData(page, 5);
-    calculateAndLogProfit(ipoData);
-  });
+  // test("Test 5", async ({ page }) => {
+  //   await page.goto(BASE_URL);
+  //   const ipoData = await extractIPOData(page, 5);
+  //   calculateAndLogProfit(ipoData);
+  // });
 
-  test("Test 6", async ({ page }) => {
-    await page.goto(BASE_URL);
-    const ipoData = await extractIPOData(page, 6);
-    calculateAndLogProfit(ipoData);
-  });
+  // test("Test 6", async ({ page }) => {
+  //   await page.goto(BASE_URL);
+  //   const ipoData = await extractIPOData(page, 6);
+  //   calculateAndLogProfit(ipoData);
+  // });
 
-  test("Test 7", async ({ page }) => {
-    await page.goto(BASE_URL);
-    const ipoData = await extractIPOData(page, 7);
-    calculateAndLogProfit(ipoData);
-  });
+  // test("Test 7", async ({ page }) => {
+  //   await page.goto(BASE_URL);
+  //   const ipoData = await extractIPOData(page, 7);
+  //   calculateAndLogProfit(ipoData);
+  // });
 
-  test("Test 8", async ({ page }) => {
-    await page.goto(BASE_URL);
-    const ipoData = await extractIPOData(page, 8);
-    calculateAndLogProfit(ipoData);
-  });
+  // test("Test 8", async ({ page }) => {
+  //   await page.goto(BASE_URL);
+  //   const ipoData = await extractIPOData(page, 8);
+  //   calculateAndLogProfit(ipoData);
+  // });
 
-  test("Test 9", async ({ page }) => {
-    await page.goto(BASE_URL);
-    const ipoData = await extractIPOData(page, 9);
-    calculateAndLogProfit(ipoData);
-  });
+  // test("Test 9", async ({ page }) => {
+  //   await page.goto(BASE_URL);
+  //   const ipoData = await extractIPOData(page, 9);
+  //   calculateAndLogProfit(ipoData);
+  // });
 });
