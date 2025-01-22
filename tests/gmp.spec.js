@@ -48,11 +48,7 @@ test.describe("Live IPO GMP Extractor", () => {
     calculateAndLogProfit(ipoData);
   });
 
-  test("Test 5", async ({ page }) => {
-    await page.goto(BASE_URL);
-    const ipoData = await extractIPOData(page, 5);
-    calculateAndLogProfit(ipoData);
-  });
+  
 
   // test("Test 5", async ({ page }) => {
   //   await page.goto(BASE_URL);
