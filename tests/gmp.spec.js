@@ -1,4 +1,4 @@
-const { test } = require("@playwright/test");
+const { test,expect } = require("@playwright/test");
 
 test.describe("Live IPO GMP Extractor", () => {
   // const BASE_URL = "https://www.investorgain.com/report/live-ipo-gmp/331/";
