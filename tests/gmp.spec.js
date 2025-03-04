@@ -6,9 +6,9 @@ test.describe("Live IPO GMP Extractor", () => {
 
   const extractIPOData = async (page, row) => {
     const nameSelector = `//tbody/tr[${row}]/td[1]/a[1]`;
-    const valueSelector = `//tbody/tr[${row}]/td[5]/b[1]`;
+    const valueSelector = `//tbody/tr[${row}]/td[5]`;
     const singleSelector = `//tbody/tr[${row}]/td[8]`;
-    const profitSelector = `//tbody/tr[${row}]/td[4]/b[1]`;
+    const profitSelector = `//tbody/tr[${row}]/td[4]`;
 
     await page.waitForSelector(nameSelector);
     const name = await page.locator(nameSelector).innerText();
@@ -53,13 +53,6 @@ test.describe("Live IPO GMP Extractor", () => {
     const ipoData = await extractIPOData(page, 5);
     calculateAndLogProfit(ipoData);
   });
-  
-
-  // test("Test 5", async ({ page }) => {
-  //   await page.goto(BASE_URL);
-  //   const ipoData = await extractIPOData(page, 5);
-  //   calculateAndLogProfit(ipoData);
-  // });
 
   // test("Test 6", async ({ page }) => {
   //   await page.goto(BASE_URL);

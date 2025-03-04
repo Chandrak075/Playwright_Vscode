@@ -5,6 +5,7 @@ const data2 = require('../Testdata/NSEData.json');
     data2.forEach((data, index) => {
         test(`Stock ${index+1}: Extract data for stock ${data.stock}`, async ({ page }) => {
             await page.goto(`https://www.nseindia.com/get-quotes/equity?symbol=${data.stock}`);
+            
 
             // Wait for the elements to be available
             await page.waitForSelector('#orderSellTq', { timeout: 10000 });
