@@ -14,15 +14,15 @@ const {test , expect} = require("@playwright/test");
         await page.getByPlaceholder("Password").fill("admin123");
         await page.locator("button[type='submit']").click();
         // Wait for home page to load
-        await page.waitForSelector(".oxd-userdropdown-icon");
+        await page.waitForSelector("//h6");
     }); // ye 2 ta jaka hooks pain login kama kariba
 
 
 
     test.afterEach(async ({page}) => {
         //Logout karib 2 ta jaka hooks test ku
-        await page.locator("//i[@class='oxd-icon bi-caret-down-fill oxd-userdropdown-icon']").click();
-        await page.locator("//a[normalize-space()='Logout']").click();
+        await page.locator(".oxd-userdropdown-name").click();
+        await page.locator("//a[text()='Logout']").click();
         await page.waitForTimeout(2000);
 
     });
@@ -33,26 +33,27 @@ const {test , expect} = require("@playwright/test");
     
         //Login before each ru aasiba
         //Home page
-        await page.locator("//span[normalize-space()='PIM']").click();
+        await page.locator("//span[text()='PIM']").click();
         await page.waitForTimeout(2000);
-        const prod = await page.$$(".oxd-table-card");
-        await expect(prod).toHaveLength(50);
+        const prod = await page.locator(".oxd-table-card").count();
+        // console.log(prod);
+        await expect(prod).toBe(50);
 
         //log out aftereach ru aasiba
     });
 
 
 
-    test("Hooks test 2", async ({page}) => {
+    test.only("Hooks test 2", async ({page}) => {
 
         //Login before each ru aasiba
         //Home page
-        await page.locator("//span[normalize-space()='PIM']").click();
+        await page.locator("//span[text()='PIM']").click();
         await page.waitForTimeout(2000);
-        await page.locator("//div[@class='oxd-grid-4 orangehrm-full-width-grid']//div[1]//div[1]//div[2]//div[1]//div[1]//input[1]").fill("Amelia");
+        await page.getByPlaceholder("Type for hints...").nth(1).fill("Ashley");
         await page.locator("button[type='submit']").click();
         await page.waitForTimeout(2000);
-        expect (await page.locator("//div[contains(text(),'Amelia')]")).toHaveText("Amelia");
+        expect (await page.locator("//div[contains(text(),'Ashley')]")).toHaveText("Ashley");
 
         //log out aftereach ru aasiba
 

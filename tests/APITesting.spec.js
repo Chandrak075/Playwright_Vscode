@@ -24,6 +24,7 @@ test('Create user (post)', async ({ request }) => {
     // Log the response data
     const responseData = await response.json();
     console.log(responseData);
+    
 
     // Verify the response status
     expect(response.status()).toBe(201);  // Assuming the API returns 201 for successful creation

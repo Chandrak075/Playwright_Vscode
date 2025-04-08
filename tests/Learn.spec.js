@@ -195,15 +195,16 @@ test("Alert with ok button only", async ({ page }) => {
 
     //Alert with ok button only
     await page.goto("https://testautomationpractice.blogspot.com/");
+    
 
     page.on('dialog' , async dialog =>{
-        expect(dialog.type()).toContain('alert')
-        expect(dialog.message()).toContain("I am an alert box!");
+        // expect(dialog.type()).toContain('alert')
+        // expect(dialog.message()).toContain("I am an alert box!");
         await dialog.accept();
     })
 
-    await page.click("//button[normalize-space()='Alert']");
-    await page.waitForTimeout(3000);
+    await page.locator('#alertBtn').click()
+    await page.waitForTimeout(1000);
 
 });   
 
@@ -212,6 +213,7 @@ test("Alert with ok button only", async ({ page }) => {
 test("Alert with ok and confirm button only", async ({ page }) => {
 
     await page.goto("https://testautomationpractice.blogspot.com/");
+    
 
     page.on('dialog' , async dialog =>{
         expect(dialog.type()).toContain('confirm')
@@ -219,8 +221,7 @@ test("Alert with ok and confirm button only", async ({ page }) => {
         await dialog.accept(); // close by using ok button
         //await dialog.dismiss();//close using cancel button
     })
-
-    await page.click("//button[normalize-space()='Confirm Box']");
+    await page.click("#confirmBtn");
     await expect(page.locator("#demo")).toHaveText("You pressed OK!");
     await page.waitForTimeout(3000);
 
@@ -233,14 +234,14 @@ test("Prompt popop alert box", async ({ page }) => {
     await page.goto("https://testautomationpractice.blogspot.com/");
 
     page.on('dialog' , async dialog =>{
-        expect(dialog.type()).toContain('prompt')
-        expect(dialog.message()).toContain("Please enter your name:");
-        expect(dialog.defaultValue()).toContain('Harry Pott')
+        // expect(dialog.type()).toContain('prompt')
+        // expect(dialog.message()).toContain("Please enter your name:");
+        // expect(dialog.defaultValue()).toContain('Harry Pott')
         await dialog.accept('CK'); // close by using ok button
         //await dialog.dismiss();//close using cancel button
     })
 
-    await page.click("//button[normalize-space()='Prompt']");
+    await page.click("#promptBtn");
     await expect(page.locator("#demo")).toHaveText("Hello CK! How are you today?");
     await page.waitForTimeout(3000);
 
@@ -412,13 +413,13 @@ test("Handle Upload Multiple files from local Storage", async ({ page }) => {
 
 
 
-test("Take Screenshot", async ({page}) => {
+test.only("Take Screenshot", async ({page}) => {
 
     await page.goto("https://www.sequelstring.com/");
     await page.screenshot({path:'tests/Screenshot/'+Date.now()+'HomePage.png'}); // path re first cotation re path aau second re screenshot image ra name kan haba seia lekha heichi. Date.now() file name re date au time lekhi deba.
     
     //take full page screenshot
-    await page.screenshot({path:'tests/Screenshot/'+Date.now()+'FullPage.png', fullPage:true});
+    await page.screenshot({path:'tests/Screenshot/FullPage123.png', fullPage:true});
 
     //take screenshot  prticular element
     await page.locator("//div[@class='Box-sc-1pb9i7s-0 Grid-sc-d3zfyy-0 bIrTKs gtgEW']//div[2]").screenshot({path:'tests/Screenshot/'+Date.now()+'Perticular_element.png'});

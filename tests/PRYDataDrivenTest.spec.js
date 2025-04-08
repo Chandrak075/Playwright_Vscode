@@ -1,7 +1,6 @@
 const { test, expect } = require('@playwright/test');
 const data1 = require('../Testdata/PRYLogin.json');
 
-test.describe('Data driven test', function () {
     data1.forEach((data, index) => {
         test(`Login test with data set ${index + 1}`, async ({ page }) => {
             await page.goto('https://demo-pry2.sequelstring.com/login/');
@@ -36,4 +35,3 @@ test.describe('Data driven test', function () {
             }
         });
     });
-});

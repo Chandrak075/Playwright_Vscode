@@ -12,8 +12,13 @@ test("Handle mutiple pages", async () => {
     await page1.goto("https://www.google.com/");
     await page2.goto("https://www.facebook.com/")
 
-    await page1.waitForTimeout(2000);
-    await page2.waitForTimeout(2000);
+    await page1.waitForTimeout(1000);
+    await page2.waitForTimeout(1000);
+
+    await page1.bringToFront();
+    await expect(page1).toHaveTitle("Google");
+    await expect(page2).toHaveTitle("Facebook – log in or sign up");
+    await page2.waitForTimeout(1000);
 }); // 2 ata page aka bele lunch haba alaga alaga tab re.
 
 
