@@ -38,7 +38,7 @@ test("Playwright Built-in locators", async ({ page }) => {
     await page.getByRole("button", { type: 'submit' }).click();
 
     // Wait for a few seconds
-    await page.waitForTimeout(3000);
+    // await page.waitForTimeout(3000);
 });
 
 
@@ -91,7 +91,7 @@ test("Hard assertion vs Soft assertion", async ({ page }) => {
     await expect.soft(page).toHaveURL("https://demo.automationtesting.in/Register.html"); // This will not stop the test if it fails
 
     // Add a wait to observe the behavior
-    await page.waitForTimeout(3000);
+    // await page.waitForTimeout(3000);
 
     // Close the page
     await page.close();
@@ -107,10 +107,8 @@ test("Handle Dropdown menu", async ({ page }) => {
 
     //check particular option present in dropdown or not.
     const textCon = await page.locator("#Skills").textContent();
-    await expect(textCon.includes('HTML')).toBeTruthy;
-
-
-    await page.waitForTimeout(3000);
+    await expect(textCon.includes('HTML')).toBeTruthy();
+    // await page.waitForTimeout(3000);
 });
 
 
@@ -132,7 +130,7 @@ test('select multiple options from multi-select dropdown', async ({ page }) => {
     await expect(optionTexts.includes('Red')).toBeTruthy();
     await expect(optionTexts.includes('Blue')).toBeTruthy();
 
-    await page.waitForTimeout(3000);
+    // await page.waitForTimeout(3000);
 });
 
 
@@ -243,7 +241,7 @@ test("Prompt popop alert box", async ({ page }) => {
 
     await page.click("#promptBtn");
     await expect(page.locator("#demo")).toHaveText("Hello CK! How are you today?");
-    await page.waitForTimeout(3000);
+    // await page.waitForTimeout(3000);
 
 });
 
@@ -352,7 +350,7 @@ test("Handle Keyboard Event", async ({ page }) => {
     // await page.waitForTimeout(1000);
     await page.keyboard.press('Control+V') //paste the text second box
 
-    await page.waitForTimeout(3000);
+    // await page.waitForTimeout(3000);
 });
 
 
@@ -413,10 +411,10 @@ test("Handle Upload Multiple files from local Storage", async ({ page }) => {
 
 
 
-test.only("Take Screenshot", async ({page}) => {
+test("Take Screenshot", async ({page}) => {
 
     await page.goto("https://www.sequelstring.com/");
-    await page.screenshot({path:'tests/Screenshot/'+Date.now()+'HomePage.png'}); // path re first cotation re path aau second re screenshot image ra name kan haba seia lekha heichi. Date.now() file name re date au time lekhi deba.
+    await page.screenshot({path:'tests/Screenshot/' +Date.now()+ 'HomePage.png'}); // path re first cotation re path aau second re screenshot image ra name kan haba seia lekha heichi. Date.now() file name re date au time lekhi deba.
     
     //take full page screenshot
     await page.screenshot({path:'tests/Screenshot/FullPage123.png', fullPage:true});
