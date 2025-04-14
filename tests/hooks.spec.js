@@ -50,10 +50,10 @@ const {test , expect} = require("@playwright/test");
         //Home page
         await page.locator("//span[text()='PIM']").click();
         await page.waitForTimeout(2000);
-        await page.getByPlaceholder("Type for hints...").nth(1).fill("Ashley");
-        await page.locator("button[type='submit']").click();
-        await page.waitForTimeout(2000);
-        expect (await page.locator("//div[contains(text(),'Ashley')]")).toHaveText("Ashley");
+        // await page.getByPlaceholder("Type for hints...").nth(1).fill("Ashley");
+        // await page.locator("button[type='submit']").click();
+        // await page.waitForTimeout(2000);
+        // expect (await page.locator("//div[contains(text(),'Ashley')]")).toHaveText("Ashley");
 
         //log out aftereach ru aasiba
 

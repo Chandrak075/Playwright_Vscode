@@ -10,6 +10,7 @@ test("Visual Test (Same page)", async ({page}) => {
 test("Visual Test (Different page) (Ye sabu bele fail haba au difference dekhei dava)", async ({page}) => {
     await page.goto("https://timesofindia.indiatimes.com/");
     await expect(page).toHaveScreenshot('TimesOfIndia_page.png');
+    
 });
 
 
