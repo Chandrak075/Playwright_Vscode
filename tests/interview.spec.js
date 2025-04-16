@@ -1,7 +1,7 @@
 const {test , expect} = require("@playwright/test");
 
 
-//thinksys round 1
+//thinksys round 1 (Orange HRM re login kariba then username aau password extract kariki only Admin aau admin123 print kariba)
 test("Orange HRM Test", async ({page}) => {
 
     await page.goto("https://opensource-demo.orangehrmlive.com/web/index.php/auth/login");
@@ -16,7 +16,7 @@ test("Orange HRM Test", async ({page}) => {
 })
 
 
-//infostride
+//infostride round 1 interview (Invalid login kariki, invalid message check kariba)
 test("Invalid login attempts with wrong ID and Password", async ({ page }) => {
 
     //Initialize the test for 3 minutes
@@ -38,7 +38,7 @@ test("Invalid login attempts with wrong ID and Password", async ({ page }) => {
 }); // interview task thila
 
 
-
+// shadow don element handle infostride round 2
 test("Handle Shadow DOM elements", async ({ page }) => {
     // await page.goto("https://books-pwakit.appspot.com/");
     // Select the input field inside shadow DOM and type text
@@ -57,4 +57,15 @@ test("Shadow dom 2 ", async ({page}) => {
     let value = await page.locator("#shadow-host #my-btn").innerText();
     console.log(value);
     await page.waitForTimeout(3000);
+})
+
+
+//pixelque technical round 
+test("Amazon scrap", async ({page}) => {
+    await page.goto("https://www.amazon.in/");
+    await page.getByPlaceholder("Search Amazon.in").fill("latest mobile phone")
+    await page.keyboard.press("Enter")
+    await page.waitForTimeout(2000)
+    const Result = await page.locator("(//a[@class='a-link-normal s-line-clamp-2 s-link-style a-text-normal'] [h2]) [3]").innerText()
+    console.log(Result)
 })
