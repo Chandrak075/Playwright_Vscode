@@ -1,6 +1,7 @@
 const { test } = require('@playwright/test');
 const Flipkart = require('../pages/flipkart');
 
+//thinksys 2nd round. athire POM use heichi flip kart re product click karuchi, 2ta alaga alaga tab re
 test('Run in two tabs using POM', async ({ browser }) => {
   
   const context = await browser.newContext();
