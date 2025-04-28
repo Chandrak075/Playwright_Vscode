@@ -19,7 +19,7 @@ test('Run in two tabs using POM', async ({ browser }) => {
   await flipkart2.getDetails();
 
 
-//It will trigger both the tab parallely. just comment line 11,12,17,18 then run it.
+//It will trigger both the tab parallely. just comment line 12,13,18,19 then run it.
 /*await Promise.all([
     page1.goto('https://www.flipkart.com'),
     page2.goto('https://www.flipkart.com')
